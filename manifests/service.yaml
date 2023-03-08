@@ -1,11 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: goecho
+  name: testworkflow-1678293251689
+  namespace: namespace-workflow-1678293281363
 spec:
+  type: LoadBalancer
   selector:
-    app: goecho
+    app: testworkflow-1678293251689
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 1323
+      targetPort: 80
