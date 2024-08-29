@@ -1,21 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: goecho
+  name: testhascreds
   labels:
-    app: goecho
+    app: testhascreds
+    kubernetes.azure.com/generator: devhub
+  namespace: namespace-workflow-1724969640359
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: goecho
+      app: testhascreds
   template:
     metadata:
       labels:
-        app: goecho
+        app: testhascreds
     spec:
       containers:
-        - name: nginx
-          image: echogo.azurecr.io/echogo
+        - name: testhascreds
+          image: acrworkflow1724969640359.azurecr.io/image-workflow-1724969640359:latest
+          imagePullPolicy: Always
           ports:
-            - containerPort: 1323
+            - containerPort: 8080
